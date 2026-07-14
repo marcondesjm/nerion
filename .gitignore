@@ -8,6 +8,7 @@ landing/node_modules/
 
 automation/instagram-autopost/runs/
 automation/instagram-autopost/state.json
+automation/instagram-feed-autopost/runs/
 squads/**/output/
 
 *.log
