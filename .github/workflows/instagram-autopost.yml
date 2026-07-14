@@ -1,9 +1,6 @@
 name: NerionOS Instagram AutoPost
 
 on:
-  schedule:
-    # Teste: 15:00 America/Sao_Paulo = 18:00 UTC em 2026-07-14.
-    - cron: "0 18 14 7 *"
   workflow_dispatch:
     inputs:
       dry_run:
