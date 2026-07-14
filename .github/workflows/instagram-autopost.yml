@@ -4,6 +4,8 @@ on:
   schedule:
     # Daily 09:00 America/Sao_Paulo = 12:00 UTC.
     - cron: "0 12 * * *"
+    # Extra test: 15:15 America/Sao_Paulo = 18:15 UTC em 2026-07-14.
+    - cron: "15 18 14 7 *"
   workflow_dispatch:
     inputs:
       dry_run:
