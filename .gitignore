@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+
+node_modules/
+dashboard/node_modules/
+landing/node_modules/
+
+automation/instagram-autopost/runs/
+squads/**/output/
+
+*.log
+dist/
+build/
+test-results/
+.vercel/
+

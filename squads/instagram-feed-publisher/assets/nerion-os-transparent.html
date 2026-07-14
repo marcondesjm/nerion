@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      width: 1600px;
+      height: 600px;
+      margin: 0;
+      overflow: hidden;
+      background: transparent;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      padding: 80px 110px;
+    }
+    .lockup {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 78px;
+    }
+    .mark-wrap {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 24px 64px rgba(0, 0, 0, .24));
+    }
+    .mark {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      filter: drop-shadow(0 10px 26px rgba(0, 0, 0, .18));
+    }
+    .name {
+      color: #F7F4EC;
+      font-size: 146px;
+      line-height: .92;
+      font-weight: 900;
+      letter-spacing: 0;
+      -webkit-text-stroke: 2px rgba(16, 17, 18, .18);
+    }
+    .name span {
+      color: #B9FF5A;
+    }
+    .tagline {
+      color: #F7F4EC;
+      font-size: 42px;
+      line-height: 1.15;
+      font-weight: 750;
+      letter-spacing: 0;
+      -webkit-text-stroke: 1px rgba(16, 17, 18, .18);
+    }
+    .rule {
+      width: 620px;
+      height: 8px;
+      background: #B9FF5A;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <main class="lockup">
+    <div class="mark-wrap">
+      <img class="mark" src="./lord-of-prompts-logo.png" alt="">
+    </div>
+    <section class="wordmark">
+      <div class="name">Nerion <span>OS</span></div>
+      <div class="rule"></div>
+      <div class="tagline">Design, automação e conversão</div>
+    </section>
+  </main>
+</body>
+</html>

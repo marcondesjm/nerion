@@ -1,0 +1,35 @@
+squad_code: "instagram-feed-publisher"
+purpose: "Gerar conteudo para Instagram, especialmente posts de feed e carrosseis, e publicar automaticamente."
+domain: "content"
+
+company:
+  name: "NerionOS"
+  tone: "Confiante, premium, direto, orientado a performance, conversao, velocidade e crescimento de SaaS, com linguagem pratica de negocio e tecnologia."
+  products: "UI/UX Design, Product Design, Discovery, Branding, Wireframes, Userflows, Prototyping, SaaS development, Web and mobile applications, MVP development, Landing pages focused on conversion, Software development, API integrations, Automations, AI agents, Ongoing product support and optimization."
+
+language: "Portugues (Brasil)"
+
+context:
+  audience: "Audiencia geral"
+  platforms: "Instagram Feed, com foco em posts estaticos e carrosseis"
+  tone: "Descontraido"
+
+tools_needed:
+  - "image-creator"
+  - "image-ai-generator"
+  - "template-designer"
+  - "image-fetcher"
+  - "instagram-publisher"
+  - "web browsing"
+  - "file reading/writing"
+  - "code execution"
+
+investigation:
+  enabled: true
+  profiles:
+    - url: "https://www.instagram.com/blueoceansem/"
+      platform: "instagram"
+      investigation_mode: "profile_3"
+
+target_formats:
+  - "instagram-feed"

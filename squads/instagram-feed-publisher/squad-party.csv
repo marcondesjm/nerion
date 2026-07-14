@@ -1,0 +1,6 @@
+id,name,title,icon,path,execution
+sofia-sinal,Sofia Sinal,Pesquisadora de Sinais,🔎,./agents/sofia-sinal.agent.md,subagent
+igor-instagram,Igor Instagram,Criador de Carrosseis,✍️,./agents/igor-instagram.agent.md,inline
+diego-design,Diego Design,Designer de Slides,🎨,./agents/diego-design.agent.md,inline
+renata-revisao,Renata Revisao,Revisora de Qualidade,✅,./agents/renata-revisao.agent.md,inline
+paula-publica,Paula Publica,Publicadora de Instagram,🚀,./agents/paula-publica.agent.md,inline

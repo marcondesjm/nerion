@@ -1,0 +1,6 @@
+interface:
+  display_name: "Git Vercel Deploy"
+  short_description: "Commit, push, and deploy with Vercel"
+  default_prompt: "Use $git-vercel-deploy to commit my changes, push them to Git, and deploy the project to Vercel."
+policy:
+  allow_implicit_invocation: true

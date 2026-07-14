@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opensquad Neural Graph</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f14;
+      --panel: #111821;
+      --panel-2: #162231;
+      --line: #4d6f91;
+      --line-strong: #79a9d2;
+      --text: #eef6ff;
+      --muted: #98a8b8;
+      --core: #8dd7ff;
+      --memory: #f6cf65;
+      --skill: #82d09d;
+      --squad: #ff9d75;
+      --agent: #d7b3ff;
+      --output: #f28fb3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(141, 215, 255, 0.12), transparent 28rem),
+        radial-gradient(circle at 88% 28%, rgba(130, 208, 157, 0.12), transparent 26rem),
+        linear-gradient(135deg, #081019 0%, var(--bg) 52%, #100f16 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 54px);
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 860px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      color: #dbe8f5;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color);
+      box-shadow: 0 0 14px var(--color);
+    }
+
+    .graph-shell {
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 8px;
+      background: rgba(7, 13, 20, 0.82);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+    }
+
+    svg {
+      display: block;
+      min-width: 1180px;
+      width: 100%;
+      height: auto;
+    }
+
+    .edge {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 2;
+      opacity: 0.72;
+      marker-end: url(#arrow);
+    }
+
+    .edge.strong {
+      stroke: var(--line-strong);
+      stroke-width: 3;
+      opacity: 0.95;
+    }
+
+    .edge.dashed {
+      stroke-dasharray: 8 7;
+    }
+
+    .node rect {
+      fill: var(--panel);
+      stroke: rgba(255, 255, 255, 0.14);
+      stroke-width: 1.2;
+      rx: 8;
+    }
+
+    .node.core rect { stroke: var(--core); }
+    .node.memory rect { stroke: var(--memory); }
+    .node.skill rect { stroke: var(--skill); }
+    .node.squad rect { stroke: var(--squad); }
+    .node.agent rect { stroke: var(--agent); }
+    .node.output rect { stroke: var(--output); }
+
+    .node .label {
+      fill: var(--text);
+      font-size: 16px;
+      font-weight: 720;
+      letter-spacing: 0;
+    }
+
+    .node .meta {
+      fill: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+
+    .section-title {
+      fill: rgba(238, 246, 255, 0.72);
+      font-size: 13px;
+      font-weight: 720;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .pipeline-label {
+      fill: #cfe2f3;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Neural do Sistema Opensquad</h1>
+      <p class="subtitle">
+        Mapa visual da arquitetura carregada em <strong>D:\novo_opensquad</strong>: o AGENTS.md ativa o sistema, o core orquestra cria&ccedil;&atilde;o e execu&ccedil;&atilde;o, as mem&oacute;rias alimentam contexto, skills expandem capacidades, e o squad ativo executa uma esteira de agentes para Instagram.
+      </p>
+      <div class="legend" aria-label="Legenda">
+        <span><i class="dot" style="--color: var(--core)"></i>N&uacute;cleo</span>
+        <span><i class="dot" style="--color: var(--memory)"></i>Mem&oacute;ria</span>
+        <span><i class="dot" style="--color: var(--skill)"></i>Skills</span>
+        <span><i class="dot" style="--color: var(--squad)"></i>Squad</span>
+        <span><i class="dot" style="--color: var(--agent)"></i>Agentes</span>
+        <span><i class="dot" style="--color: var(--output)"></i>Sa&iacute;das</span>
+      </div>
+    </header>
+
+    <section class="graph-shell" aria-label="Grafo neural do Opensquad">
+      <svg viewBox="0 0 1360 940" role="img" aria-labelledby="graph-title graph-desc">
+        <title id="graph-title">Grafo neural do sistema Opensquad</title>
+        <desc id="graph-desc">Visualizacao da relacao entre AGENTS.md, memorias, core, skills, squad Instagram Feed Publisher, agentes, pipeline, dashboard e outputs.</desc>
+
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#79a9d2"></path>
+          </marker>
+          <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#79a9d2" flood-opacity="0.16"></feDropShadow>
+          </filter>
+        </defs>
+
+        <text x="54" y="58" class="section-title">Ativacao e contexto</text>
+        <text x="532" y="58" class="section-title">Core operacional</text>
+        <text x="935" y="58" class="section-title">Squad ativo</text>
+        <text x="935" y="452" class="section-title">Pipeline de execucao</text>
+
+        <path class="edge strong" d="M 214 134 C 330 134, 368 116, 474 116"></path>
+        <path class="edge" d="M 214 134 C 328 198, 353 247, 474 284"></path>
+        <path class="edge" d="M 214 134 C 308 252, 332 348, 474 452"></path>
+
+        <path class="edge" d="M 652 116 C 762 116, 779 146, 878 164"></path>
+        <path class="edge" d="M 652 284 C 760 252, 782 204, 878 184"></path>
+        <path class="edge" d="M 652 452 C 760 374, 790 246, 878 204"></path>
+
+        <path class="edge dashed" d="M 168 274 C 294 358, 364 500, 474 646"></path>
+        <path class="edge dashed" d="M 168 364 C 308 420, 376 548, 474 646"></path>
+        <path class="edge dashed" d="M 168 454 C 322 466, 392 574, 474 646"></path>
+
+        <path class="edge" d="M 1052 222 C 1052 288, 1052 326, 1052 398"></path>
+        <path class="edge" d="M 1052 398 C 1052 430, 1052 446, 1052 484"></path>
+
+        <path class="edge strong" d="M 1052 552 C 1052 585, 1052 594, 1052 632"></path>
+        <path class="edge strong" d="M 1052 700 C 1052 733, 1052 742, 1052 780"></path>
+        <path class="edge strong" d="M 1052 848 C 966 884, 810 880, 714 818"></path>
+
+        <path class="edge" d="M 878 184 C 820 238, 792 292, 714 334"></path>
+        <path class="edge dashed" d="M 650 646 C 742 646, 786 596, 878 540"></path>
+        <path class="edge dashed" d="M 650 646 C 750 682, 790 742, 878 816"></path>
+
+        <g class="node core" filter="url(#softGlow)" transform="translate(54 86)">
+          <rect width="160" height="96"></rect>
+          <text x="18" y="35" class="label">AGENTS.md</text>
+          <text x="18" y="60" class="meta">Entrada do sistema</text>
+          <text x="18" y="78" class="meta">Rotas e regras</text>
+        </g>
+
+        <g class="node memory" transform="translate(54 232)">
+          <rect width="220" height="72"></rect>
+          <text x="18" y="31" class="label">company.md</text>
+          <text x="18" y="54" class="meta">Contexto da NerionOS</text>
+        </g>
+
+        <g class="node memory" transform="translate(54 322)">
+          <rect width="220" height="72"></rect>
+          <text x="18" y="31" class="label">preferences.md</text>
+          <text x="18" y="54" class="meta">Idioma e preferencias</text>
+        </g>
+
+        <g class="node memory" transform="translate(54 412)">
+          <rect width="220" height="72"></rect>
+          <text x="18" y="31" class="label">Squad memory</text>
+          <text x="18" y="54" class="meta">memories.md e runs.md</text>
+        </g>
+
+        <g class="node core" transform="translate(474 78)">
+          <rect width="178" height="76"></rect>
+          <text x="18" y="31" class="label">Architect</text>
+          <text x="18" y="54" class="meta">Cria e edita squads</text>
+        </g>
+
+        <g class="node core" transform="translate(474 246)">
+          <rect width="178" height="76"></rect>
+          <text x="18" y="31" class="label">Runner</text>
+          <text x="18" y="54" class="meta">Executa pipelines</text>
+        </g>
+
+        <g class="node core" transform="translate(474 414)">
+          <rect width="178" height="76"></rect>
+          <text x="18" y="31" class="label">Skills Engine</text>
+          <text x="18" y="54" class="meta">Resolve capacidades</text>
+        </g>
+
+        <g class="node skill" transform="translate(474 606)">
+          <rect width="176" height="112"></rect>
+          <text x="18" y="31" class="label">skills/</text>
+          <text x="18" y="56" class="meta">image-creator</text>
+          <text x="18" y="74" class="meta">template-designer</text>
+          <text x="18" y="92" class="meta">instagram-publisher</text>
+        </g>
+
+        <g class="node output" transform="translate(474 780)">
+          <rect width="240" height="78"></rect>
+          <text x="18" y="32" class="label">dashboard/ + landing/</text>
+          <text x="18" y="56" class="meta">Interface visual e site</text>
+        </g>
+
+        <g class="node squad" filter="url(#softGlow)" transform="translate(878 124)">
+          <rect width="348" height="98"></rect>
+          <text x="20" y="36" class="label">Instagram Feed Publisher</text>
+          <text x="20" y="62" class="meta">squad.yaml + squad-party.csv</text>
+          <text x="20" y="80" class="meta">Pesquisa, copy, design, revisao e publicacao</text>
+        </g>
+
+        <g class="node squad" transform="translate(878 398)">
+          <rect width="348" height="72"></rect>
+          <text x="20" y="31" class="label">pipeline.yaml</text>
+          <text x="20" y="54" class="meta">12 etapas com checkpoints humanos</text>
+        </g>
+
+        <g class="node agent" transform="translate(878 484)">
+          <rect width="348" height="68"></rect>
+          <text x="20" y="29" class="label">Sofia Sinal</text>
+          <text x="20" y="51" class="meta">Pesquisa sinais e gera briefing</text>
+        </g>
+
+        <g class="node agent" transform="translate(878 632)">
+          <rect width="348" height="68"></rect>
+          <text x="20" y="29" class="label">Igor Instagram</text>
+          <text x="20" y="51" class="meta">Cria angulos e copy do carrossel</text>
+        </g>
+
+        <g class="node agent" transform="translate(878 780)">
+          <rect width="348" height="68"></rect>
+          <text x="20" y="29" class="label">Diego, Renata e Paula</text>
+          <text x="20" y="51" class="meta">Design, revisao e publicacao</text>
+        </g>
+
+        <g class="node output" transform="translate(560 312)">
+          <rect width="154" height="68"></rect>
+          <text x="18" y="29" class="label">state.json</text>
+          <text x="18" y="51" class="meta">Status ao vivo</text>
+        </g>
+
+        <g class="node output" transform="translate(546 738)">
+          <rect width="168" height="68"></rect>
+          <text x="18" y="29" class="label">output/</text>
+          <text x="18" y="51" class="meta">Posts e artefatos</text>
+        </g>
+
+        <text x="1070" y="590" class="pipeline-label">briefing</text>
+        <text x="1070" y="738" class="pipeline-label">copy aprovada</text>
+        <text x="760" y="872" class="pipeline-label">artefatos finais</text>
+      </svg>
+    </section>
+
+    <p class="footer-note">
+      Arquivo gerado como uma visualizacao local e autocontida. O grafo representa a arquitetura atual encontrada no repositorio, com foco no squad ativo <strong>instagram-feed-publisher</strong>.
+    </p>
+  </main>
+</body>
+</html>

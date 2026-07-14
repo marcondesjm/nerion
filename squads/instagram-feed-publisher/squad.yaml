@@ -1,0 +1,37 @@
+code: instagram-feed-publisher
+name: Instagram Feed Publisher
+description: Gera conteudo de Instagram Feed para NerionOS, cria visual, revisa e publica com confirmacao.
+icon: "📲"
+version: "1.0.0"
+language: "Portugues (Brasil)"
+
+skills:
+  - web_search
+  - web_fetch
+  - image-creator
+  - image-ai-generator
+  - template-designer
+  - image-fetcher
+  - instagram-publisher
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+agents:
+  - id: sofia-sinal
+    path: ./agents/sofia-sinal.agent.md
+  - id: igor-instagram
+    path: ./agents/igor-instagram.agent.md
+  - id: diego-design
+    path: ./agents/diego-design.agent.md
+  - id: renata-revisao
+    path: ./agents/renata-revisao.agent.md
+  - id: paula-publica
+    path: ./agents/paula-publica.agent.md
+
+pipeline: pipeline/pipeline.yaml

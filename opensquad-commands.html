@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comandos do Opensquad</title>
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg: #0b1016;
+      --panel: #111922;
+      --panel-2: #152131;
+      --text: #eef5fb;
+      --muted: #9fb0bf;
+      --line: rgba(255,255,255,.12);
+      --accent: #79c8ff;
+      --accent-2: #8fe3a9;
+      --warn: #ffd26f;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 16% 12%, rgba(121,200,255,.12), transparent 22rem),
+        radial-gradient(circle at 86% 20%, rgba(143,227,169,.10), transparent 24rem),
+        linear-gradient(135deg, #081019 0%, var(--bg) 100%);
+      color:var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .page{
+      width:min(1180px, 100%);
+      margin:0 auto;
+      padding:32px 24px 40px;
+    }
+    header{
+      margin-bottom:22px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px, 4vw, 52px);
+      line-height:1.02;
+      letter-spacing:0;
+    }
+    p{
+      margin:0;
+      line-height:1.6;
+      color:var(--muted);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    .card{
+      background:rgba(17,25,34,.88);
+      border:1px solid var(--line);
+      border-radius:8px;
+      padding:18px;
+      box-shadow:0 16px 60px rgba(0,0,0,.28);
+    }
+    .card h2{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:0;
+    }
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:5px 10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:#dbe9f4;
+      font-size:13px;
+    }
+    .badge strong{
+      color:var(--accent);
+      margin-right:6px;
+    }
+    .table-wrap{
+      margin-top:18px;
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:rgba(10,15,22,.68);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width: 920px;
+    }
+    th, td{
+      text-align:left;
+      vertical-align:top;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+      line-height:1.45;
+    }
+    th{
+      position:sticky;
+      top:0;
+      background:rgba(17,25,34,.98);
+      z-index:1;
+      color:#dbe7f2;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+    }
+    code{
+      padding:.15rem .35rem;
+      border-radius:6px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:.95em;
+    }
+    .cmd{
+      color:#f4fbff;
+      font-weight:650;
+      white-space:nowrap;
+    }
+    .extra{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .note{
+      color:#d7e8f8;
+    }
+    .warn{
+      color:var(--warn);
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .page{padding:20px 16px 28px}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Comandos do Opensquad</h1>
+      <p>
+        Lista consolidada dos comandos documentados no projeto para controlar squads, skills, perfil da empresa e ajustes do sistema.
+      </p>
+      <div class="badge-row" aria-label="Resumo">
+        <span class="badge"><strong>Fonte:</strong> <code>AGENTS.md</code> + <code>README.md</code></span>
+        <span class="badge"><strong>Escopo:</strong> comandos do Opensquad neste reposit&oacute;rio</span>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Atalhos principais</h2>
+        <p>Esses s&atilde;o os comandos que acionam o menu e os fluxos principais.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Comando</th>
+                <th>O que faz</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cmd">/opensquad</td>
+                <td>Abre o menu principal.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad menu</td>
+                <td>Abre o menu principal.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad help</td>
+                <td>Mostra a ajuda do sistema.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad create &lt;descri&ccedil;&atilde;o&gt;</td>
+                <td>Inicia o fluxo do Arquiteto para criar um squad.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad run &lt;nome&gt;</td>
+                <td>Executa um squad pelo Runner.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad edit &lt;nome&gt; &lt;mudan&ccedil;as&gt;</td>
+                <td>Inicia o fluxo do Arquiteto para editar um squad.</td>
+              </tr>
+              <tr>
+                <td class="cmd">/opensquad list</td>
+                <td>Lista todos os squads na pasta <code>squads/</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h2>Op&ccedil;&otilde;es de sistema</h2>
+        <p>Comandos para skills, perfil e configura&ccedil;&atilde;o.</p>
+        <div class="badge-row">
+          <span class="badge"><code>/opensquad skills</code></span>
+          <span class="badge"><code>/opensquad install &lt;nome&gt;</code></span>
+          <span class="badge"><code>/opensquad uninstall &lt;nome&gt;</code></span>
+          <span class="badge"><code>/opensquad delete &lt;nome&gt;</code></span>
+          <span class="badge"><code>/opensquad edit-company</code></span>
+          <span class="badge"><code>/opensquad show-company</code></span>
+          <span class="badge"><code>/opensquad settings</code></span>
+          <span class="badge"><code>/opensquad reset</code></span>
+        </div>
+        <p class="extra">
+          O menu ainda tem atalhos sem comando direto: <span class="note">Create a new squad</span>,
+          <span class="note">Run an existing squad</span>,
+          <span class="note">My squads</span> e
+          <span class="note">More options</span>.
+        </p>
+      </aside>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Atalho do dashboard</h2>
+      <p>O README tamb&eacute;m documenta um fluxo para abrir o escrit&oacute;rio virtual local.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Comando</th>
+              <th>Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cmd">/opensquad dashboard</td>
+              <td>Gera o dashboard do squad no IDE.</td>
+            </tr>
+            <tr>
+              <td class="cmd">npx serve squads/&lt;nome-do-squad&gt;/dashboard</td>
+              <td>Serve localmente o dashboard gerado.</td>
+            </tr>
+            <tr>
+              <td class="cmd">http://localhost:3000</td>
+              <td>Endere&ccedil;o sugerido para abrir no navegador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="extra warn">
+        Observa&ccedil;&atilde;o: os comandos acima s&atilde;o os que aparecem documentados no reposit&oacute;rio. Se voc&ecirc; quiser uma lista de comandos do editor/CLI do ambiente atual, isso &eacute; outra camada e n&atilde;o est&aacute; descrita neste projeto.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Comandos do ambiente</h2>
+      <p>
+        Estes comandos n&atilde;o aparecem nos arquivos do Opensquad, mas s&atilde;o os atalhos que voc&ecirc; citou e que normalmente pertencem ao ambiente/cliente de chat.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Comando</th>
+              <th>Fun&ccedil;&atilde;o esperada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cmd">/clear</td>
+              <td>Limpa a conversa atual ou o contexto vis&iacute;vel.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/compact</td>
+              <td>Compacta o contexto para reduzir tamanho e manter o essencial.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/model</td>
+              <td>Troca o modelo da conversa ativa, quando o cliente suporta esse atalho.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/help</td>
+              <td>Mostra a ajuda do ambiente atual, quando esse atalho existe.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="extra">
+        Se voc&ecirc; quiser, eu posso colocar esses quatro comandos no topo do HTML e separar em duas abas visuais: <span class="note">Opensquad</span> e <span class="note">Ambiente</span>.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Exemplos r&aacute;pidos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Exemplo</th>
+              <th>Resultado esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cmd">/opensquad crie um squad para escrever posts no LinkedIn sobre IA</td>
+              <td>Cria um squad a partir de linguagem natural.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/opensquad execute o squad meu-squad</td>
+              <td>Executa o squad solicitado.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/opensquad crie um squad para [o que voc&ecirc; precisa]</td>
+              <td>Mesmo fluxo de cria&ccedil;&atilde;o, com descri&ccedil;&atilde;o livre.</td>
+            </tr>
+            <tr>
+              <td class="cmd">/opensquad run my-squad</td>
+              <td>Vers&atilde;o em ingl&ecirc;s documentada no README.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

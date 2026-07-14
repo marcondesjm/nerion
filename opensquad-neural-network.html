@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opensquad Neural Network</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070a0f;
+      --text: #f2f7fb;
+      --muted: #9badbd;
+      --input: #f5c856;
+      --core: #61c4ff;
+      --memory: #ff8ea8;
+      --skills: #74d99f;
+      --agents: #c9a0ff;
+      --output: #ffad72;
+      --edge: rgba(143, 181, 210, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(97, 196, 255, 0.16), transparent 24rem),
+        radial-gradient(circle at 82% 16%, rgba(116, 217, 159, 0.13), transparent 26rem),
+        radial-gradient(circle at 52% 96%, rgba(255, 173, 114, 0.12), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page {
+      width: min(1480px, 100%);
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 56px);
+      letter-spacing: 0;
+      line-height: 1.02;
+    }
+
+    .subtitle {
+      max-width: 900px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .graph-wrap {
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        rgba(8, 13, 20, 0.86);
+      background-size: 32px 32px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    svg {
+      display: block;
+      min-width: 1260px;
+      width: 100%;
+      height: auto;
+    }
+
+    .layer-title {
+      fill: rgba(242, 247, 251, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .edge {
+      stroke: var(--edge);
+      stroke-width: 1.3;
+      fill: none;
+    }
+
+    .edge.hot {
+      stroke: rgba(97, 196, 255, 0.5);
+      stroke-width: 2.2;
+    }
+
+    .edge.pulse {
+      stroke: rgba(245, 200, 86, 0.9);
+      stroke-width: 2.8;
+      stroke-dasharray: 10 18;
+      animation: dash 1.6s linear infinite;
+    }
+
+    .neuron circle {
+      fill: rgba(9, 18, 28, 0.94);
+      stroke: var(--c);
+      stroke-width: 2.4;
+      filter: drop-shadow(0 0 12px color-mix(in srgb, var(--c) 48%, transparent));
+    }
+
+    .neuron .halo {
+      fill: var(--c);
+      opacity: 0.08;
+    }
+
+    .neuron text {
+      fill: var(--text);
+      font-size: 12px;
+      font-weight: 760;
+      text-anchor: middle;
+      letter-spacing: 0;
+    }
+
+    .neuron .small {
+      fill: var(--muted);
+      font-size: 10px;
+      font-weight: 620;
+    }
+
+    .note {
+      fill: rgba(242, 247, 251, 0.78);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .chip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip span {
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.045);
+      color: #dce9f4;
+      font-size: 13px;
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -56;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Opensquad como Rede Neural</h1>
+      <p class="subtitle">
+        Uma leitura mais neural da arquitetura: entradas alimentam contexto e n&uacute;cleo, o n&uacute;cleo ativa mem&oacute;rias e skills, os agentes processam em camadas, e os outputs retornam como aprendizado para execu&ccedil;&otilde;es futuras.
+      </p>
+      <div class="chip">
+        <span>Inputs: AGENTS.md, usu&aacute;rio, empresa</span>
+        <span>Hidden layers: core, mem&oacute;ria, skills, agentes</span>
+        <span>Outputs: conte&uacute;do, publica&ccedil;&atilde;o, state.json, aprendizados</span>
+      </div>
+    </header>
+
+    <section class="graph-wrap">
+      <svg viewBox="0 0 1420 900" role="img" aria-label="Rede neural do sistema Opensquad">
+        <text x="70" y="58" class="layer-title">Input Layer</text>
+        <text x="312" y="58" class="layer-title">Context Layer</text>
+        <text x="552" y="58" class="layer-title">Core Layer</text>
+        <text x="792" y="58" class="layer-title">Capability Layer</text>
+        <text x="1032" y="58" class="layer-title">Agent Layer</text>
+        <text x="1260" y="58" class="layer-title">Output Layer</text>
+
+        <g id="edges">
+          <path class="edge hot" d="M160 160 C230 160 250 146 320 146"></path>
+          <path class="edge" d="M160 160 C230 184 250 230 320 250"></path>
+          <path class="edge" d="M160 160 C230 210 250 318 320 354"></path>
+          <path class="edge pulse" d="M160 300 C230 260 250 190 320 146"></path>
+          <path class="edge hot" d="M160 300 C230 300 250 276 320 250"></path>
+          <path class="edge" d="M160 300 C230 330 250 350 320 354"></path>
+          <path class="edge" d="M160 440 C230 394 250 296 320 250"></path>
+          <path class="edge hot" d="M160 440 C230 440 250 388 320 354"></path>
+
+          <path class="edge hot" d="M400 146 C470 146 490 146 560 146"></path>
+          <path class="edge" d="M400 146 C470 188 490 230 560 250"></path>
+          <path class="edge" d="M400 250 C470 210 490 174 560 146"></path>
+          <path class="edge hot" d="M400 250 C470 250 490 250 560 250"></path>
+          <path class="edge pulse" d="M400 354 C470 310 490 280 560 250"></path>
+          <path class="edge" d="M400 354 C470 386 490 408 560 430"></path>
+
+          <path class="edge hot" d="M640 146 C710 146 730 166 800 190"></path>
+          <path class="edge" d="M640 146 C710 230 730 308 800 384"></path>
+          <path class="edge" d="M640 250 C710 232 730 214 800 190"></path>
+          <path class="edge hot" d="M640 250 C710 290 730 340 800 384"></path>
+          <path class="edge pulse" d="M640 430 C710 390 730 280 800 190"></path>
+          <path class="edge" d="M640 430 C710 430 730 406 800 384"></path>
+
+          <path class="edge hot" d="M880 190 C950 152 970 130 1040 126"></path>
+          <path class="edge" d="M880 190 C950 202 970 216 1040 230"></path>
+          <path class="edge" d="M880 190 C950 254 970 314 1040 334"></path>
+          <path class="edge" d="M880 384 C950 318 970 252 1040 230"></path>
+          <path class="edge hot" d="M880 384 C950 384 970 356 1040 334"></path>
+          <path class="edge pulse" d="M880 384 C950 438 970 484 1040 542"></path>
+
+          <path class="edge pulse" d="M1120 126 C1190 156 1210 176 1280 208"></path>
+          <path class="edge hot" d="M1120 230 C1190 226 1210 218 1280 208"></path>
+          <path class="edge hot" d="M1120 334 C1190 334 1210 320 1280 312"></path>
+          <path class="edge" d="M1120 438 C1190 412 1210 362 1280 312"></path>
+          <path class="edge pulse" d="M1120 542 C1190 492 1210 390 1280 312"></path>
+          <path class="edge" d="M1120 542 C1190 600 1210 642 1280 684"></path>
+
+          <path class="edge hot" d="M1280 684 C1040 790 600 790 400 354"></path>
+        </g>
+
+        <g class="neuron" style="--c: var(--input)" transform="translate(120 160)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">AGENTS</text>
+          <text y="13" class="small">regras</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--input)" transform="translate(120 300)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">Usuario</text>
+          <text y="13" class="small">pedido</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--input)" transform="translate(120 440)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">NerionOS</text>
+          <text y="13" class="small">marca</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--memory)" transform="translate(360 146)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">company</text>
+          <text y="13" class="small">contexto</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--memory)" transform="translate(360 250)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">prefs</text>
+          <text y="13" class="small">idioma</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--memory)" transform="translate(360 354)">
+          <circle class="halo" r="58"></circle>
+          <circle r="40"></circle>
+          <text y="-4">memory</text>
+          <text y="13" class="small">runs</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--core)" transform="translate(600 146)">
+          <circle class="halo" r="62"></circle>
+          <circle r="43"></circle>
+          <text y="-4">Architect</text>
+          <text y="14" class="small">squads</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--core)" transform="translate(600 250)">
+          <circle class="halo" r="62"></circle>
+          <circle r="43"></circle>
+          <text y="-4">Runner</text>
+          <text y="14" class="small">pipeline</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--core)" transform="translate(600 430)">
+          <circle class="halo" r="62"></circle>
+          <circle r="43"></circle>
+          <text y="-4">Dashboard</text>
+          <text y="14" class="small">state</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--skills)" transform="translate(840 190)">
+          <circle class="halo" r="62"></circle>
+          <circle r="43"></circle>
+          <text y="-4">Skills</text>
+          <text y="14" class="small">tools</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--skills)" transform="translate(840 384)">
+          <circle class="halo" r="62"></circle>
+          <circle r="43"></circle>
+          <text y="-4">Data</text>
+          <text y="14" class="small">criterios</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--agents)" transform="translate(1080 126)">
+          <circle class="halo" r="56"></circle>
+          <circle r="39"></circle>
+          <text y="-4">Sofia</text>
+          <text y="13" class="small">sinais</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--agents)" transform="translate(1080 230)">
+          <circle class="halo" r="56"></circle>
+          <circle r="39"></circle>
+          <text y="-4">Igor</text>
+          <text y="13" class="small">copy</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--agents)" transform="translate(1080 334)">
+          <circle class="halo" r="56"></circle>
+          <circle r="39"></circle>
+          <text y="-4">Diego</text>
+          <text y="13" class="small">design</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--agents)" transform="translate(1080 438)">
+          <circle class="halo" r="56"></circle>
+          <circle r="39"></circle>
+          <text y="-4">Renata</text>
+          <text y="13" class="small">review</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--agents)" transform="translate(1080 542)">
+          <circle class="halo" r="56"></circle>
+          <circle r="39"></circle>
+          <text y="-4">Paula</text>
+          <text y="13" class="small">publish</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--output)" transform="translate(1320 208)">
+          <circle class="halo" r="60"></circle>
+          <circle r="42"></circle>
+          <text y="-4">Brief</text>
+          <text y="14" class="small">pesquisa</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--output)" transform="translate(1320 312)">
+          <circle class="halo" r="60"></circle>
+          <circle r="42"></circle>
+          <text y="-4">Post</text>
+          <text y="14" class="small">slides</text>
+        </g>
+
+        <g class="neuron" style="--c: var(--output)" transform="translate(1320 684)">
+          <circle class="halo" r="60"></circle>
+          <circle r="42"></circle>
+          <text y="-4">Learn</text>
+          <text y="14" class="small">memoria</text>
+        </g>
+
+        <text x="72" y="822" class="note">Fluxo principal: pedido -> contexto -> runner -> skills/dados -> agentes -> output</text>
+        <text x="72" y="846" class="note">Loop de aprendizado: outputs e feedback humano retornam para memories.md e runs.md</text>
+      </svg>
+    </section>
+  </main>
+</body>
+</html>

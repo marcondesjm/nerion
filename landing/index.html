@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NerionOS — A camada de inteligência por trás da sua empresa</title>
+    <meta
+      name="description"
+      content="NerionOS — a camada de inteligência por trás da sua empresa. Implementação de IA como sistema operacional para founders e PMEs. Closed loops em cada processo crítico."
+    />
+    <meta
+      name="keywords"
+      content="NerionOS, sistema operacional IA, closed loop, AI-native, implementação IA, camada de inteligência"
+    />
+    <meta property="og:title" content="NerionOS — A camada de inteligência por trás da sua empresa" />
+    <meta
+      property="og:description"
+      content="IA não é uma ferramenta. É o sistema operacional em que sua empresa roda. Para founders e PMEs até ~50 pessoas."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
+    <script>
+      (function () {
+        var mem = navigator.deviceMemory;
+        var cores = navigator.hardwareConcurrency;
+        var saveData = navigator.connection && navigator.connection.saveData;
+        if ((mem && mem < 4) || (cores && cores < 4) || saveData) {
+          document.documentElement.classList.add("low-perf");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
