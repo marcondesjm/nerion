@@ -20,7 +20,7 @@ version: "1.0.0"
 script:
   path: scripts/publish.js
   runtime: node
-  invoke: "node --env-file=.env {skill_path}/scripts/publish.js --images \"{images}\" --caption-file \"{caption_file}\""
+  invoke: "node {skill_path}/scripts/publish.js --images \"{images}\" --caption-file \"{caption_file}\""
 env:
   - INSTAGRAM_ACCESS_TOKEN
   - INSTAGRAM_USER_ID
@@ -47,7 +47,7 @@ Use the Instagram Publisher when you need to publish carousel posts directly to 
    - Max 2200 characters (Instagram limit)
 4. Run the publish script:
    ```
-   node --env-file=.env squads/{squad}/tools/publish.js \
+   node squads/{squad}/tools/publish.js \
      --images "<comma-separated-ordered-paths>" \
      --caption-file "<path-to-caption.txt>"
    ```

@@ -1,10 +1,25 @@
 #!/usr/bin/env node
 // Instagram Carousel Publisher
-// Usage: node --env-file=.env publish.js --images "slide1.jpg,slide2.jpg" --caption "..." [--dry-run]
+// Usage: node publish.js --images "slide1.jpg,slide2.jpg" --caption-file "caption.txt" [--dry-run]
 
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
+
+function loadEnv() {
+  const env = { ...process.env };
+  const envPath = resolve(ROOT, '.env');
+  if (!existsSync(envPath)) return env;
+
+  const raw = readFileSync(envPath, 'utf8').replace(/^\uFEFF/, '');
+  for (const line of raw.split(/\r?\n/)) {
+    const match = line.match(/^\s*([^#][^=]+)=(.*)$/);
+    if (match && !env[match[1].trim()]) env[match[1].trim()] = match[2].trim();
+  }
+  return env;
+}
 
 // ── Argument parsing ──────────────────────────────────────────
 
@@ -130,7 +145,7 @@ async function main() {
   }
   assertCaptionReady(caption);
 
-  const { INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID, IMGBB_API_KEY } = process.env;
+  const { INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID, IMGBB_API_KEY } = loadEnv();
   if (!INSTAGRAM_ACCESS_TOKEN) throw new Error('INSTAGRAM_ACCESS_TOKEN is not set in environment');
   if (!INSTAGRAM_USER_ID) throw new Error('INSTAGRAM_USER_ID is not set in environment');
   if (!IMGBB_API_KEY) throw new Error('IMGBB_API_KEY is not set in environment. Get one at https://api.imgbb.com/');
