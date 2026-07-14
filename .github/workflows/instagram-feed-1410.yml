@@ -1,9 +1,9 @@
-name: NerionOS Instagram Feed 14h50
+name: NerionOS Instagram Feed 15h00
 
 on:
   schedule:
-    # Teste: 14:50 America/Sao_Paulo = 17:50 UTC em 2026-07-14.
-    - cron: "50 17 14 7 *"
+    # Teste: 15:00 America/Sao_Paulo = 18:00 UTC em 2026-07-14.
+    - cron: "0 18 14 7 *"
   workflow_dispatch:
     inputs:
       dry_run:
