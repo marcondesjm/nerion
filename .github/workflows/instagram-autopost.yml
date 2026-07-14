@@ -1,6 +1,9 @@
 name: NerionOS Instagram AutoPost
 
 on:
+  schedule:
+    # Daily 09:00 America/Sao_Paulo = 12:00 UTC.
+    - cron: "0 12 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
