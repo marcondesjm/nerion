@@ -1,4 +1,4 @@
-name: NerionOS Instagram Feed 15h00
+name: NerionOS Instagram Feed Manual
 
 on:
   workflow_dispatch:

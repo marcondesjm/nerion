@@ -56,9 +56,6 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
             ARGS="$ARGS --force"
           fi
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            ARGS="$ARGS --force"
-          fi
           node automation/instagram-autopost/daily-story-autopost.mjs $ARGS
 
       - name: Upload run logs
