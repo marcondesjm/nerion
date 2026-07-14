@@ -1,0 +1,16 @@
+name = "nerion-instagram-cron"
+main = "src/index.js"
+compatibility_date = "2026-07-14"
+
+[triggers]
+crons = [
+  "0 12 * * *",
+  "10 12 * * *"
+]
+
+[vars]
+GITHUB_OWNER = "marcondesjm"
+GITHUB_REPO = "nerion"
+GITHUB_REF = "main"
+STORY_WORKFLOW = "instagram-autopost.yml"
+FEED_WORKFLOW = "instagram-feed-1410.yml"
