@@ -37,11 +37,13 @@ async function dispatchWorkflow(env, workflow, inputs = {}) {
   return { workflow, status: response.status };
 }
 
-async function runForCron(cron, env) {
+async function runForCron(cron, env, options = {}) {
+  const dryRun = options.dryRun ? "true" : "false";
+
   if (cron === STORY_CRON) {
     return [
       await dispatchWorkflow(env, env.STORY_WORKFLOW, {
-        dry_run: "false",
+        dry_run: dryRun,
         force: "true"
       })
     ];
@@ -50,18 +52,18 @@ async function runForCron(cron, env) {
   if (cron === FEED_CRON) {
     return [
       await dispatchWorkflow(env, env.FEED_WORKFLOW, {
-        dry_run: "false"
+        dry_run: dryRun
       })
     ];
   }
 
   return [
     await dispatchWorkflow(env, env.STORY_WORKFLOW, {
-      dry_run: "false",
+      dry_run: dryRun,
       force: "true"
     }),
     await dispatchWorkflow(env, env.FEED_WORKFLOW, {
-      dry_run: "false"
+      dry_run: dryRun
     })
   ];
 }
@@ -88,8 +90,17 @@ export default {
       if (!env.TEST_SECRET || secret !== env.TEST_SECRET) {
         return jsonResponse({ ok: false, error: "unauthorized" }, 401);
       }
-      const results = await runForCron("manual-test", env);
-      return jsonResponse({ ok: true, results });
+      const dryRun = url.searchParams.get("dry_run") === "true";
+      try {
+        const results = await runForCron("manual-test", env, { dryRun });
+        return jsonResponse({ ok: true, dryRun, results });
+      } catch (error) {
+        return jsonResponse({
+          ok: false,
+          dryRun,
+          error: error instanceof Error ? error.message : String(error)
+        }, 500);
+      }
     }
 
     return jsonResponse({ ok: true, message: "Nerion Instagram cron is active." });
