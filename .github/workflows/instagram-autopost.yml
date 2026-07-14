@@ -2,8 +2,8 @@ name: NerionOS Instagram AutoPost
 
 on:
   schedule:
-    # 09:00 America/Sao_Paulo = 12:00 UTC.
-    - cron: "0 12 * * *"
+    # Teste: 14:50 America/Sao_Paulo = 17:50 UTC em 2026-07-14.
+    - cron: "50 17 14 7 *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -59,6 +59,9 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
             ARGS="$ARGS --force"
           fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            ARGS="$ARGS --force"
+          fi
           node automation/instagram-autopost/daily-story-autopost.mjs $ARGS
 
       - name: Upload run logs
@@ -68,4 +71,3 @@ jobs:
           name: instagram-autopost-runs
           path: automation/instagram-autopost/runs/
           if-no-files-found: ignore
-
