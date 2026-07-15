@@ -1,0 +1,23 @@
+{
+  "name": "instagram-auto-publisher",
+  "version": "0.1.0",
+  "description": "Reusable Instagram automation templates and workflow guidance for carousel/feed publishing.",
+  "author": {
+    "name": "Marcondes Machado"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Instagram Auto Publisher",
+    "shortDescription": "Create reusable Instagram feed automation.",
+    "longDescription": "Build, adapt, validate, preview, and publish automated Instagram carousel/feed workflows with configurable accounts, content packs, visual styles, GitHub Actions, dry-run support, and PT-BR copy validation.",
+    "developerName": "Marcondes Machado",
+    "category": "Productivity",
+    "capabilities": ["Write"],
+    "defaultPrompt": [
+      "Create Instagram automation for a new account.",
+      "Adapt this feed publisher to another Instagram.",
+      "Validate and preview my Instagram carousel workflow."
+    ],
+    "brandColor": "#7CFFB2"
+  }
+}
