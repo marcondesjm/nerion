@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Procedimento para Automatizar Outra Conta do Instagram</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #17211b;
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    .cover {
+      min-height: 245mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 10px solid #7cffb2;
+      padding-left: 28px;
+      page-break-after: always;
+    }
+
+    .eyebrow {
+      color: #0f7a48;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 680px;
+      margin: 12px 0 16px;
+      color: #101714;
+      font-size: 42px;
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      max-width: 660px;
+      color: #42534a;
+      font-size: 18px;
+    }
+
+    .meta {
+      margin-top: 36px;
+      color: #607166;
+      font-size: 13px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: #101714;
+      font-size: 24px;
+      line-height: 1.18;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      color: #1a2a21;
+      font-size: 17px;
+      page-break-after: avoid;
+    }
+
+    section {
+      margin: 0 0 22px;
+      page-break-inside: avoid;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul, ol {
+      margin: 8px 0 12px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 3px;
+      background: #edf4f0;
+      color: #132019;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 90%;
+    }
+
+    pre {
+      margin: 10px 0 14px;
+      padding: 12px 14px;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      border: 1px solid #d7e3dc;
+      border-radius: 8px;
+      background: #f6faf8;
+      color: #142019;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      line-height: 1.35;
+      page-break-inside: avoid;
+    }
+
+    .note {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-left: 5px solid #7cffb2;
+      background: #f2fbf6;
+      color: #1d3328;
+    }
+
+    .warning {
+      margin: 12px 0;
+      padding: 12px 14px;
+      border-left: 5px solid #ffb84d;
+      background: #fff8ec;
+      color: #4c3212;
+    }
+
+    .checklist li {
+      list-style: none;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .checklist li::before {
+      content: "[ ]";
+      position: absolute;
+      left: 0;
+      color: #0f7a48;
+      font-family: Consolas, "Courier New", monospace;
+      font-weight: 700;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px;
+      font-size: 13px;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #d7e3dc;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf4f0;
+      color: #17211b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="cover">
+      <div class="eyebrow">Instagram Auto Publisher</div>
+      <h1>Procedimento para Automatizar Outra Conta do Instagram</h1>
+      <p class="subtitle">
+        Guia prático para reaproveitar o template/plugin criado neste projeto em uma nova conta,
+        com validação de acentos, prévia visual, dry-run e publicação via Instagram Graph API.
+      </p>
+      <p class="meta">
+        Projeto: NerionOS<br>
+        Arquivo base: <code>plugins/instagram-auto-publisher</code><br>
+        Atualizado em: 2026-07-15
+      </p>
+    </div>
+
+    <section>
+      <h2>1. Visão Geral</h2>
+      <p>
+        O fluxo reutilizável permite criar carrosséis automáticos para outras contas do Instagram
+        usando configuração por conta, packs de conteúdo, estilos visuais alternáveis e publicação
+        via GitHub Actions.
+      </p>
+      <p>O processo tem quatro fases:</p>
+      <ol>
+        <li>Preparar a conta no Meta/Instagram.</li>
+        <li>Criar a configuração da conta no template.</li>
+        <li>Validar e renderizar uma prévia sem publicar.</li>
+        <li>Rodar dry-run e depois publicar/agendar.</li>
+      </ol>
+      <div class="note">
+        Comece sempre por <code>--validate-copy</code> e <code>--render-only</code>. Só depois rode
+        dry-run. Publicação real vem por último.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Pré-Requisitos</h2>
+      <ul class="checklist">
+        <li>Conta Instagram profissional ou criador de conteúdo.</li>
+        <li>Conta vinculada a uma Página do Facebook no Meta Business.</li>
+        <li>Acesso ao Meta Developers / Graph API para gerar token.</li>
+        <li><code>INSTAGRAM_USER_ID</code> da conta correta.</li>
+        <li>Token com permissão para criar e publicar mídia.</li>
+        <li>Chave do imgBB ou outro serviço público de hospedagem de imagem.</li>
+        <li>Repositório com GitHub Actions habilitado.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Arquivos do Template</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Arquivo</th>
+            <th>Função</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>accounts.example.json</code></td>
+            <td>Modelo de conta, usuário esperado, marca e nomes dos secrets.</td>
+          </tr>
+          <tr>
+            <td><code>content-packs.example.json</code></td>
+            <td>Slides e legendas que serão alternados por data.</td>
+          </tr>
+          <tr>
+            <td><code>visual-styles.example.json</code></td>
+            <td>Cores e estilos visuais do carrossel.</td>
+          </tr>
+          <tr>
+            <td><code>publish-carousel.mjs</code></td>
+            <td>Motor de validação, renderização, upload e publicação.</td>
+          </tr>
+          <tr>
+            <td><code>instagram-feed-template.yml</code></td>
+            <td>Workflow base para GitHub Actions.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="page-break">
+      <h2>4. Copiar o Template</h2>
+      <p>
+        O template está dentro do plugin:
+        <code>plugins/instagram-auto-publisher/assets/instagram-template</code>.
+      </p>
+      <p>Copie para uma pasta de automação da nova conta:</p>
+      <pre>automation/instagram-template</pre>
+      <p>Ou use um nome por cliente:</p>
+      <pre>automation/instagram-cliente-x</pre>
+      <div class="warning">
+        Não copie a pasta <code>runs/</code>. Ela contém prévias e logs gerados localmente.
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Configurar a Conta</h2>
+      <p>
+        Duplique <code>accounts.example.json</code> para <code>accounts.json</code> e adicione a conta:
+      </p>
+      <pre>{
+  "account": "cliente-x",
+  "expectedUsername": "cliente.oficial",
+  "brandName": "Cliente X",
+  "footerText": "Automação e crescimento com método",
+  "accessTokenEnv": "CLIENTE_X_INSTAGRAM_ACCESS_TOKEN",
+  "userIdEnv": "CLIENTE_X_INSTAGRAM_USER_ID",
+  "imgbbKeyEnv": "IMGBB_API_KEY",
+  "scheduleUtc": "10 12 * * *"
+}</pre>
+      <p>
+        O campo <code>expectedUsername</code> é uma trava de segurança: o script consulta a Graph API
+        e falha se a conta retornada não for exatamente essa.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Criar Conteúdo</h2>
+      <p>
+        Duplique <code>content-packs.example.json</code> para <code>content-packs.json</code>.
+        Cada pack representa um carrossel completo.
+      </p>
+      <pre>{
+  "account": "cliente-x",
+  "packs": [
+    {
+      "slides": [
+        {
+          "eyebrow": "Diagnóstico",
+          "title": "Processo claro vende melhor.",
+          "body": "Quando o time entende prioridade, mensagem e próximo passo, a operação fica mais leve."
+        }
+      ],
+      "caption": "Processo claro vende melhor.\n\nAutomação boa começa pelo fluxo certo."
+    }
+  ]
+}</pre>
+      <div class="note">
+        O script bloqueia mojibake e palavras comuns sem acento no texto principal. Hashtags podem
+        ficar sem acento quando isso for intencional.
+      </div>
+    </section>
+
+    <section class="page-break">
+      <h2>7. Configurar Estilo Visual</h2>
+      <p>
+        Duplique <code>visual-styles.example.json</code> para <code>visual-styles.json</code>.
+        Cada estilo altera cor de destaque, fundo, grade e texto.
+      </p>
+      <pre>{
+  "name": "mint-grid",
+  "accent": "#7CFFB2",
+  "accentSoft": "rgba(124,255,178,0.18)",
+  "grid": "rgba(124,255,178,0.10)",
+  "bgTop": "#0B1014",
+  "bgBottom": "#121A20",
+  "text": "#F4F7F5",
+  "muted": "#DDE5DF"
+}</pre>
+    </section>
+
+    <section>
+      <h2>8. Configurar Secrets no GitHub</h2>
+      <p>No repositório, vá em:</p>
+      <pre>Settings -> Secrets and variables -> Actions -> New repository secret</pre>
+      <p>Crie os secrets com os nomes definidos em <code>accounts.json</code>:</p>
+      <ul>
+        <li><code>CLIENTE_X_INSTAGRAM_ACCESS_TOKEN</code></li>
+        <li><code>CLIENTE_X_INSTAGRAM_USER_ID</code></li>
+        <li><code>IMGBB_API_KEY</code></li>
+      </ul>
+      <div class="warning">
+        Não coloque token real em arquivo <code>.json</code>, <code>.env</code> versionado ou no PDF.
+        Use GitHub Secrets.
+      </div>
+    </section>
+
+    <section>
+      <h2>9. Comandos de Validação Local</h2>
+      <h3>Validar textos</h3>
+      <pre>node automation\instagram-template\scripts\publish-carousel.mjs --account cliente-x --validate-copy</pre>
+      <h3>Gerar prévia sem publicar</h3>
+      <pre>node automation\instagram-template\scripts\publish-carousel.mjs --account cliente-x --render-only</pre>
+      <h3>Dry-run</h3>
+      <pre>node automation\instagram-template\scripts\publish-carousel.mjs --account cliente-x --dry-run</pre>
+      <h3>Publicar de verdade</h3>
+      <pre>node automation\instagram-template\scripts\publish-carousel.mjs --account cliente-x</pre>
+    </section>
+
+    <section class="page-break">
+      <h2>10. Configurar GitHub Actions</h2>
+      <p>
+        Copie <code>instagram-feed-template.yml</code> para <code>.github/workflows/instagram-feed-cliente-x.yml</code>.
+      </p>
+      <p>Defina o agendamento em UTC. Exemplo: 09:10 em São Paulo = 12:10 UTC.</p>
+      <pre>on:
+  schedule:
+    - cron: "10 12 * * *"
+  workflow_dispatch:
+    inputs:
+      account:
+        required: true
+        default: "cliente-x"
+      dry_run:
+        required: true
+        default: "true"</pre>
+      <p>
+        No primeiro disparo manual, deixe <code>dry_run=true</code>. Só troque para
+        <code>false</code> depois de validar a conta, imagens e legenda.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Checklist Antes de Publicar</h2>
+      <ul class="checklist">
+        <li><code>expectedUsername</code> confere com a conta real.</li>
+        <li><code>--validate-copy</code> passou.</li>
+        <li><code>--render-only</code> gerou imagens revisadas.</li>
+        <li>Legenda está com acentos corretos.</li>
+        <li>Não há mojibake como <code>Ãƒ</code>, <code>Ã‚</code>, <code>Ã¢</code> ou <code>ï¿½</code>.</li>
+        <li>Secrets existem no GitHub Actions.</li>
+        <li>Primeiro workflow rodou em dry-run.</li>
+        <li>Publicação real foi autorizada.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>12. Como Replicar Para Mais Contas</h2>
+      <ol>
+        <li>Adicione uma nova entrada em <code>accounts.json</code>.</li>
+        <li>Adicione um grupo com o mesmo <code>account</code> em <code>content-packs.json</code>.</li>
+        <li>Crie secrets próprios para a nova conta.</li>
+        <li>Crie um workflow por conta ou use um workflow manual com input <code>account</code>.</li>
+        <li>Teste com <code>--validate-copy</code>, <code>--render-only</code> e dry-run.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>13. Problemas Comuns</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Erro</th>
+            <th>Causa provável</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Conta errada</td>
+            <td><code>INSTAGRAM_USER_ID</code> aponta para outra conta.</td>
+            <td>Corrigir o user ID e manter <code>expectedUsername</code> como trava.</td>
+          </tr>
+          <tr>
+            <td>Texto sem acento</td>
+            <td>Pack foi escrito em ASCII ou gerado sem revisão.</td>
+            <td>Corrigir texto e rodar <code>--validate-copy</code>.</td>
+          </tr>
+          <tr>
+            <td>imgBB upload failed</td>
+            <td>Chave ausente, inválida ou limite do serviço.</td>
+            <td>Verificar <code>IMGBB_API_KEY</code>.</td>
+          </tr>
+          <tr>
+            <td>Graph POST failed</td>
+            <td>Token sem permissão, expirado ou mídia recusada.</td>
+            <td>Renovar token e revisar permissões da Meta Graph API.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
