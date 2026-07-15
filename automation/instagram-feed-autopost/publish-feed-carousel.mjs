@@ -13,109 +13,109 @@ const EXPECTED_USERNAME = 'marcondes.machado.oficial';
 const DAILY_PACKS = [
   {
     slides: [
-      { eyebrow: 'Nerion OS', title: 'IA solta nao escala.', body: 'Quando cada pessoa usa IA de um jeito, o resultado vira improviso.' },
-      { eyebrow: 'O salto real', title: 'Agentes com processo, sim.', body: 'A empresa ganha quando transforma tarefas repetidas em fluxos claros, medidos e treinaveis.' },
-      { eyebrow: 'Na pratica', title: 'Skill e o manual vivo.', body: 'Ela documenta contexto, padrao de qualidade, entrada, saida e modo de execucao.' },
-      { eyebrow: 'Operacao inteligente', title: 'Agente executa com padrao.', body: 'Atendimento, comercial, suporte, conteudo e decisao ganham velocidade sem perder controle.' },
+      { eyebrow: 'Nerion OS', title: 'IA solta não escala.', body: 'Quando cada pessoa usa IA de um jeito, o resultado vira improviso.' },
+      { eyebrow: 'O salto real', title: 'Agentes com processo, sim.', body: 'A empresa ganha quando transforma tarefas repetidas em fluxos claros, medidos e treináveis.' },
+      { eyebrow: 'Na prática', title: 'Skill é o manual vivo.', body: 'Ela documenta contexto, padrão de qualidade, entrada, saída e modo de execução.' },
+      { eyebrow: 'Operação inteligente', title: 'Agente executa com padrão.', body: 'Atendimento, comercial, suporte, conteúdo e decisão ganham velocidade sem perder controle.' },
       { eyebrow: 'Comece pequeno', title: 'Escolha um processo.', body: 'A NerionOS desenha o fluxo, cria a skill e coloca o agente para trabalhar.' }
     ],
-    caption: `IA solta nao escala. Agentes com processo, sim.
+    caption: `IA solta não escala. Agentes com processo, sim.
 
-O ponto real nao e testar ferramenta nova. E descobrir onde a IA reduz retrabalho, acelera decisao e cria padrao para o time inteiro operar melhor.
+O ponto real não é testar ferramenta nova. É descobrir onde a IA reduz retrabalho, acelera decisão e cria padrão para o time inteiro operar melhor.
 
-No NerionOS, a IA entra como sistema de operacao: skills documentadas, agentes especializados, fluxos conectados e criterios de qualidade.
+No NerionOS, a IA entra como sistema de operação: skills documentadas, agentes especializados, fluxos conectados e critérios de qualidade.
 
 Prompt sozinho ajuda uma pessoa. Processo com agente ajuda a empresa.
 
-Comente IA ou chame no direct para mapear o primeiro agente da sua operacao.
+Comente IA ou chame no direct para mapear o primeiro agente da sua operação.
 
 #nerionos #inteligenciaartificial #agentesia #automacao #negociosdigitais #inovacao #empresasinteligentes`
   },
   {
     slides: [
-      { eyebrow: 'Skill', title: 'Conhecimento precisa virar rotina.', body: 'Se o padrao fica so na cabeca de uma pessoa, a empresa perde velocidade.' },
-      { eyebrow: 'Contexto', title: 'A skill guarda o jeito certo.', body: 'Ela registra criterio, tom, dados, limites e exemplos para o agente executar melhor.' },
-      { eyebrow: 'Agente', title: 'Execucao sem recomecar do zero.', body: 'Cada tarefa parte de um protocolo claro, nao de improviso.' },
-      { eyebrow: 'Gestao', title: 'Menos dependencia individual.', body: 'O time ganha consistencia porque o conhecimento fica operacionalizado.' },
+      { eyebrow: 'Skill', title: 'Conhecimento precisa virar rotina.', body: 'Se o padrão fica só na cabeça de uma pessoa, a empresa perde velocidade.' },
+      { eyebrow: 'Contexto', title: 'A skill guarda o jeito certo.', body: 'Ela registra critério, tom, dados, limites e exemplos para o agente executar melhor.' },
+      { eyebrow: 'Agente', title: 'Execução sem recomeçar do zero.', body: 'Cada tarefa parte de um protocolo claro, não de improviso.' },
+      { eyebrow: 'Gestão', title: 'Menos dependência individual.', body: 'O time ganha consistência porque o conhecimento fica operacionalizado.' },
       { eyebrow: 'NerionOS', title: 'Transforme know-how em sistema.', body: 'Mapeie um processo, escreva a skill e coloque um agente para rodar.' }
     ],
     caption: `Toda empresa tem conhecimento importante preso em conversas, planilhas e pessoas-chave.
 
-Skills resolvem isso: transformam contexto, criterio e padrao de qualidade em uma rotina que agentes conseguem executar.
+Skills resolvem isso: transformam contexto, critério e padrão de qualidade em uma rotina que agentes conseguem executar.
 
-Quando a skill fica clara, o agente nao improvisa. Ele segue um jeito de trabalhar que pode ser revisado, melhorado e repetido.
+Quando a skill fica clara, o agente não improvisa. Ele segue um jeito de trabalhar que pode ser revisado, melhorado e repetido.
 
-Esse e o caminho pratico para IA em empresas: menos dependencia individual, mais operacao inteligente.
+Esse é o caminho prático para IA em empresas: menos dependência individual, mais operação inteligente.
 
 #skills #agentesia #nerionos #inteligenciaartificial #automacao #gestao #produtividade`
   },
   {
     slides: [
-      { eyebrow: 'Atendimento', title: 'IA nao e so chatbot.', body: 'O valor aparece quando o atendimento entende contexto, prioridade e proximo passo.' },
-      { eyebrow: 'Skill', title: 'Padrao antes da resposta.', body: 'A skill define tom, politicas, perguntas obrigatorias e criterios de encaminhamento.' },
-      { eyebrow: 'Agente', title: 'Resolucao com trilha.', body: 'O agente coleta dados, classifica, responde e aciona o fluxo certo.' },
-      { eyebrow: 'Empresa', title: 'Menos fila, mais clareza.', body: 'O time humano recebe casos melhor organizados, com historico e recomendacao.' },
-      { eyebrow: 'NerionOS', title: 'Atendimento vira operacao.', body: 'A IA trabalha dentro de um processo, nao solta em uma caixa de mensagem.' }
+      { eyebrow: 'Atendimento', title: 'IA não é só chatbot.', body: 'O valor aparece quando o atendimento entende contexto, prioridade e próximo passo.' },
+      { eyebrow: 'Skill', title: 'Padrão antes da resposta.', body: 'A skill define tom, políticas, perguntas obrigatórias e critérios de encaminhamento.' },
+      { eyebrow: 'Agente', title: 'Resolução com trilha.', body: 'O agente coleta dados, classifica, responde e aciona o fluxo certo.' },
+      { eyebrow: 'Empresa', title: 'Menos fila, mais clareza.', body: 'O time humano recebe casos melhor organizados, com histórico e recomendação.' },
+      { eyebrow: 'NerionOS', title: 'Atendimento vira operação.', body: 'A IA trabalha dentro de um processo, não solta em uma caixa de mensagem.' }
     ],
-    caption: `IA em atendimento nao deveria ser apenas um chatbot respondendo rapido.
+    caption: `IA em atendimento não deveria ser apenas um chatbot respondendo rápido.
 
-O ganho real vem quando existe processo: skill com criterios, agente com papel claro e fluxo conectado ao time humano.
+O ganho real vem quando existe processo: skill com critérios, agente com papel claro e fluxo conectado ao time humano.
 
-Assim a IA coleta informacoes, classifica urgencia, responde com padrao e encaminha o que precisa de decisao.
+Assim a IA coleta informações, classifica urgência, responde com padrão e encaminha o que precisa de decisão.
 
-Velocidade com controle. Automacao com contexto.
+Velocidade com controle. Automação com contexto.
 
 #atendimento #inteligenciaartificial #agentesia #nerionos #automacao #experienciadocliente`
   },
   {
     slides: [
-      { eyebrow: 'Comercial', title: 'Lead bom nao pode esfriar.', body: 'A velocidade entre interesse e resposta muda o resultado da venda.' },
-      { eyebrow: 'Agente', title: 'Triagem em minutos.', body: 'O agente identifica perfil, dor, urgencia e melhor proxima acao.' },
-      { eyebrow: 'Skill', title: 'Discurso comercial com padrao.', body: 'A skill guarda oferta, objecoes, tom, perguntas e criterios de qualificacao.' },
-      { eyebrow: 'Pipeline', title: 'Menos follow-up perdido.', body: 'A automacao lembra, organiza e prepara o vendedor para entrar no momento certo.' },
-      { eyebrow: 'NerionOS', title: 'Venda com IA operacional.', body: 'Nao e sobre substituir o comercial. E dar sistema para ele vender melhor.' }
+      { eyebrow: 'Comercial', title: 'Lead bom não pode esfriar.', body: 'A velocidade entre interesse e resposta muda o resultado da venda.' },
+      { eyebrow: 'Agente', title: 'Triagem em minutos.', body: 'O agente identifica perfil, dor, urgência e melhor próxima ação.' },
+      { eyebrow: 'Skill', title: 'Discurso comercial com padrão.', body: 'A skill guarda oferta, objeções, tom, perguntas e critérios de qualificação.' },
+      { eyebrow: 'Pipeline', title: 'Menos follow-up perdido.', body: 'A automação lembra, organiza e prepara o vendedor para entrar no momento certo.' },
+      { eyebrow: 'NerionOS', title: 'Venda com IA operacional.', body: 'Não é sobre substituir o comercial. É dar sistema para ele vender melhor.' }
     ],
-    caption: `No comercial, IA boa nao e a que fala bonito. E a que reduz atraso, organiza contexto e ajuda o time a agir no momento certo.
+    caption: `No comercial, IA boa não é a que fala bonito. É a que reduz atraso, organiza contexto e ajuda o time a agir no momento certo.
 
-Com skills, o agente aprende o padrao da oferta, as perguntas de qualificacao e os criterios de prioridade.
+Com skills, o agente aprende o padrão da oferta, as perguntas de qualificação e os critérios de prioridade.
 
-Com fluxo, ele registra dados, prepara follow-ups e entrega uma proxima acao clara.
+Com fluxo, ele registra dados, prepara follow-ups e entrega uma próxima ação clara.
 
-IA em empresas precisa aparecer no pipeline, nao apenas em ideias.
+IA em empresas precisa aparecer no pipeline, não apenas em ideias.
 
 #vendas #crm #agentesia #nerionos #automacao #inteligenciaartificial #negocios`
   },
   {
     slides: [
-      { eyebrow: 'Conteudo', title: 'Post diario tambem precisa de sistema.', body: 'Criatividade melhora quando existe pauta, criterio e rotina.' },
-      { eyebrow: 'Skill', title: 'A marca ganha memoria.', body: 'Tom de voz, temas, proibicoes, exemplos e formatos ficam documentados.' },
-      { eyebrow: 'Agente', title: 'Execucao com variacao.', body: 'O agente cria novas abordagens sem fugir do posicionamento.' },
-      { eyebrow: 'Operacao', title: 'Publicar deixa de ser improviso.', body: 'Roteiro, arte, legenda e revisao entram em uma esteira previsivel.' },
-      { eyebrow: 'NerionOS', title: 'Marketing com agentes.', body: 'Menos branco na tela. Mais consistencia para construir autoridade.' }
+      { eyebrow: 'Conteúdo', title: 'Post diário também precisa de sistema.', body: 'Criatividade melhora quando existe pauta, critério e rotina.' },
+      { eyebrow: 'Skill', title: 'A marca ganha memória.', body: 'Tom de voz, temas, proibições, exemplos e formatos ficam documentados.' },
+      { eyebrow: 'Agente', title: 'Execução com variação.', body: 'O agente cria novas abordagens sem fugir do posicionamento.' },
+      { eyebrow: 'Operação', title: 'Publicar deixa de ser improviso.', body: 'Roteiro, arte, legenda e revisão entram em uma esteira previsível.' },
+      { eyebrow: 'NerionOS', title: 'Marketing com agentes.', body: 'Menos branco na tela. Mais consistência para construir autoridade.' }
     ],
-    caption: `Conteudo diario nao precisa depender de inspiracao aleatoria.
+    caption: `Conteúdo diário não precisa depender de inspiração aleatória.
 
-Com uma skill bem feita, a marca ganha memoria: tom de voz, temas, exemplos, criterios de qualidade e limites.
+Com uma skill bem feita, a marca ganha memória: tom de voz, temas, exemplos, critérios de qualidade e limites.
 
-Com agentes, a operacao cria novas abordagens sem perder consistencia.
+Com agentes, a operação cria novas abordagens sem perder consistência.
 
-Esse e o uso pratico de IA no marketing: transformar conteudo em sistema.
+Esse é o uso prático de IA no marketing: transformar conteúdo em sistema.
 
 #marketingdigital #conteudo #agentesia #skills #nerionos #automacao #inteligenciaartificial`
   },
   {
     slides: [
-      { eyebrow: 'Operacao', title: 'O gargalo nem sempre e falta de gente.', body: 'Muitas vezes e falta de fluxo claro para tarefas repetidas.' },
-      { eyebrow: 'Diagnostico', title: 'Mapeie a rotina cansativa.', body: 'Procure onde o time copia, cola, confere, reescreve e cobra status.' },
-      { eyebrow: 'Skill', title: 'Defina o padrao.', body: 'Entrada, saida, criterio, excecao e exemplos viram instrucao operacional.' },
+      { eyebrow: 'Operação', title: 'O gargalo nem sempre é falta de gente.', body: 'Muitas vezes é falta de fluxo claro para tarefas repetidas.' },
+      { eyebrow: 'Diagnóstico', title: 'Mapeie a rotina cansativa.', body: 'Procure onde o time copia, cola, confere, reescreve e cobra status.' },
+      { eyebrow: 'Skill', title: 'Defina o padrão.', body: 'Entrada, saída, critério, exceção e exemplos viram instrução operacional.' },
       { eyebrow: 'Agente', title: 'Rode a rotina.', body: 'O agente executa, registra resultado e chama humanos quando precisa.' },
-      { eyebrow: 'NerionOS', title: 'Automacao com governanca.', body: 'IA boa nao bagunca a empresa. Ela organiza o trabalho.' }
+      { eyebrow: 'NerionOS', title: 'Automação com governança.', body: 'IA boa não bagunça a empresa. Ela organiza o trabalho.' }
     ],
     caption: `Antes de automatizar, escolha a rotina certa.
 
-O melhor primeiro agente geralmente nasce onde existe repeticao: copiar dados, conferir informacao, responder padrao, atualizar status, preparar material.
+O melhor primeiro agente geralmente nasce onde existe repetição: copiar dados, conferir informação, responder padrão, atualizar status, preparar material.
 
-A skill define o padrao. O agente executa. O fluxo registra e mede.
+A skill define o padrão. O agente executa. O fluxo registra e mede.
 
 IA em empresas precisa reduzir atrito operacional todos os dias.
 
@@ -123,19 +123,19 @@ IA em empresas precisa reduzir atrito operacional todos os dias.
   },
   {
     slides: [
-      { eyebrow: 'Gestao', title: 'IA precisa de criterio.', body: 'Sem criterio, a empresa ganha velocidade para errar mais rapido.' },
-      { eyebrow: 'Qualidade', title: 'Defina o que e bom.', body: 'A skill registra padroes, exemplos aprovados e sinais de alerta.' },
-      { eyebrow: 'Agente', title: 'Execute com verificacao.', body: 'O agente produz, checa requisitos e separa excecoes para revisao.' },
-      { eyebrow: 'Aprendizado', title: 'Melhore a cada rodada.', body: 'Feedback vira ajuste de skill, nao apenas correcao manual.' },
+      { eyebrow: 'Gestão', title: 'IA precisa de critério.', body: 'Sem critério, a empresa ganha velocidade para errar mais rápido.' },
+      { eyebrow: 'Qualidade', title: 'Defina o que é bom.', body: 'A skill registra padrões, exemplos aprovados e sinais de alerta.' },
+      { eyebrow: 'Agente', title: 'Execute com verificação.', body: 'O agente produz, checa requisitos e separa exceções para revisão.' },
+      { eyebrow: 'Aprendizado', title: 'Melhore a cada rodada.', body: 'Feedback vira ajuste de skill, não apenas correção manual.' },
       { eyebrow: 'NerionOS', title: 'IA como sistema vivo.', body: 'Agentes melhores nascem de processos que aprendem.' }
     ],
-    caption: `A pergunta nao e apenas: "qual IA vamos usar?"
+    caption: `A pergunta não é apenas: "qual IA vamos usar?"
 
-A pergunta mais importante e: "qual criterio essa IA precisa seguir para ajudar a empresa com seguranca?"
+A pergunta mais importante é: "qual critério essa IA precisa seguir para ajudar a empresa com segurança?"
 
-Skills tornam esse criterio explicito. Agentes executam com verificacao. Feedback melhora o sistema.
+Skills tornam esse critério explícito. Agentes executam com verificação. Feedback melhora o sistema.
 
-E assim a IA sai do teste isolado e vira operacao viva.
+E assim a IA sai do teste isolado e vira operação viva.
 
 #gestao #qualidade #inteligenciaartificial #agentesia #skills #nerionos #empresas`
   }
@@ -143,7 +143,9 @@ E assim a IA sai do teste isolado e vira operacao viva.
 
 function parseArgs(argv) {
   return {
-    dryRun: argv.includes('--dry-run')
+    dryRun: argv.includes('--dry-run'),
+    validateCopy: argv.includes('--validate-copy'),
+    renderOnly: argv.includes('--render-only')
   };
 }
 
@@ -163,6 +165,77 @@ function assertNoMojibake(text) {
   const markers = ['Ã', 'Â', 'â', '�'];
   const found = markers.find((marker) => text.includes(marker));
   if (found) throw new Error(`Texto contem mojibake (${found}). Corrija antes de publicar.`);
+}
+
+const PLAIN_ASCII_PORTUGUESE = [
+  ['nao', 'não'],
+  ['operacao', 'operação'],
+  ['automacao', 'automação'],
+  ['conteudo', 'conteúdo'],
+  ['criterio', 'critério'],
+  ['criterios', 'critérios'],
+  ['explicito', 'explícito'],
+  ['padrao', 'padrão'],
+  ['padroes', 'padrões'],
+  ['treinaveis', 'treináveis'],
+  ['politicas', 'políticas'],
+  ['obrigatorias', 'obrigatórias'],
+  ['rapido', 'rápido'],
+  ['tambem', 'também'],
+  ['diario', 'diário'],
+  ['proibicoes', 'proibições'],
+  ['dependencia', 'dependência'],
+  ['cabeca', 'cabeça'],
+  ['recomecar', 'recomeçar'],
+  ['resolucao', 'resolução'],
+  ['decisao', 'decisão'],
+  ['execucao', 'execução'],
+  ['informacoes', 'informações'],
+  ['proximo', 'próximo'],
+  ['proxima', 'próxima'],
+  ['historico', 'histórico'],
+  ['recomendacao', 'recomendação'],
+  ['urgencia', 'urgência'],
+  ['objecoes', 'objeções'],
+  ['qualificacao', 'qualificação'],
+  ['acao', 'ação'],
+  ['variacao', 'variação'],
+  ['revisao', 'revisão'],
+  ['previsivel', 'previsível'],
+  ['consistencia', 'consistência'],
+  ['aleatoria', 'aleatória'],
+  ['diagnostico', 'diagnóstico'],
+  ['repeticao', 'repetição'],
+  ['informacao', 'informação'],
+  ['saida', 'saída'],
+  ['excecao', 'exceção'],
+  ['instrucao', 'instrução'],
+  ['governanca', 'governança'],
+  ['bagunca', 'bagunça'],
+  ['verificacao', 'verificação'],
+  ['correcao', 'correção'],
+  ['seguranca', 'segurança'],
+  ['pratica', 'prática'],
+  ['pratico', 'prático'],
+  ['gestao', 'gestão']
+];
+
+function stripHashtagLines(text) {
+  return text
+    .split(/\r?\n/)
+    .filter((line) => !line.trim().startsWith('#'))
+    .join('\n');
+}
+
+function assertPortugueseAccents(text) {
+  const searchable = stripHashtagLines(text);
+  const found = PLAIN_ASCII_PORTUGUESE.find(([plain]) => {
+    const pattern = new RegExp(`(^|[^\\p{L}])${plain}([^\\p{L}]|$)`, 'iu');
+    return pattern.test(searchable);
+  });
+  if (found) {
+    throw new Error(`Texto sem acento: use "${found[1]}" no lugar de "${found[0]}".`);
+  }
 }
 
 function timestampSaoPaulo() {
@@ -187,6 +260,18 @@ function todaySaoPaulo() {
 function pickDailyPack(dateString) {
   const seed = [...dateString].reduce((sum, char) => sum + char.charCodeAt(0), 0);
   return DAILY_PACKS[seed % DAILY_PACKS.length];
+}
+
+function validateDailyPacks() {
+  for (const [packIndex, pack] of DAILY_PACKS.entries()) {
+    assertNoMojibake(pack.caption);
+    assertPortugueseAccents(pack.caption);
+    for (const [slideIndex, slide] of pack.slides.entries()) {
+      const text = `${slide.eyebrow}\n${slide.title}\n${slide.body}`;
+      assertNoMojibake(text);
+      assertPortugueseAccents(text);
+    }
+  }
 }
 
 function slideHtml(slide, index, total) {
@@ -263,6 +348,7 @@ async function renderSlides(runDir, slides) {
   for (let index = 0; index < slides.length; index += 1) {
     const html = slideHtml(slides[index], index + 1, slides.length);
     assertNoMojibake(html);
+    assertPortugueseAccents(`${slides[index].eyebrow}\n${slides[index].title}\n${slides[index].body}`);
     const htmlPath = join(runDir, `slide-${String(index + 1).padStart(2, '0')}.html`);
     const imagePath = join(runDir, `slide-${String(index + 1).padStart(2, '0')}.jpg`);
     writeFileSync(htmlPath, html, 'utf8');
@@ -315,6 +401,25 @@ async function pollContainer(containerId, token) {
 
 async function main() {
   const args = parseArgs(process.argv);
+  if (args.validateCopy) {
+    validateDailyPacks();
+    console.log(JSON.stringify({ ok: true, checkedPacks: DAILY_PACKS.length }, null, 2));
+    return;
+  }
+  if (args.renderOnly) {
+    validateDailyPacks();
+    mkdirSync(RUNS_DIR, { recursive: true });
+    const today = todaySaoPaulo();
+    const pack = pickDailyPack(today);
+    const runId = `${timestampSaoPaulo()}-render-only`;
+    const runDir = join(RUNS_DIR, runId);
+    mkdirSync(runDir, { recursive: true });
+    writeFileSync(join(runDir, 'daily-pack.json'), JSON.stringify({ date: today, ...pack }, null, 2), 'utf8');
+    writeFileSync(join(runDir, 'caption.txt'), pack.caption, 'utf8');
+    const imagePaths = await renderSlides(runDir, pack.slides);
+    console.log(JSON.stringify({ ok: true, renderOnly: true, runDir, imagePaths }, null, 2));
+    return;
+  }
   const env = loadEnv();
   const token = env.INSTAGRAM_ACCESS_TOKEN;
   const userId = env.INSTAGRAM_USER_ID;
@@ -328,6 +433,7 @@ async function main() {
   const { slides, caption } = pack;
 
   assertNoMojibake(caption);
+  assertPortugueseAccents(caption);
   mkdirSync(RUNS_DIR, { recursive: true });
   const runId = timestampSaoPaulo();
   const runDir = join(RUNS_DIR, runId);
