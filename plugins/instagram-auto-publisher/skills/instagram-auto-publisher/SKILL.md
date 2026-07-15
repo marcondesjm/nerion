@@ -7,6 +7,30 @@ description: Build reusable Instagram feed automation for one or more accounts u
 
 Use this skill to create or adapt an automated Instagram feed/carousel publisher for a new account.
 
+## Required Intake
+
+When the user wants to create automation for another Instagram account and has not already supplied the details, start by asking for these fields in Portuguese:
+
+1. Instagram username, with or without `@`.
+2. Brand name to show on the carousel cards.
+3. Main content theme or niche.
+4. Desired posting time and timezone.
+5. Whether to copy the existing NerionOS flow quickly or start from the generic template.
+
+Use one concise message. After the user answers, continue without asking again unless a required field is missing or ambiguous.
+
+Recommended first message:
+
+```text
+Perfeito. Para criar a automação dessa nova conta, me passe:
+
+1. @usuário do Instagram
+2. Nome da marca nos cards
+3. Tema principal dos posts
+4. Horário de postagem
+5. Quer copiar o fluxo NerionOS rápido ou usar o template genérico?
+```
+
 ## Core Workflow
 
 1. Copy the bundled template from `../../assets/instagram-template` into the target repo, normally as `automation/instagram-template` or `automation/instagram-<account>`.

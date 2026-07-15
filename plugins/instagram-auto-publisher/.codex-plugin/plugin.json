@@ -14,9 +14,9 @@
     "category": "Productivity",
     "capabilities": ["Write"],
     "defaultPrompt": [
-      "Create Instagram automation for a new account.",
-      "Adapt this feed publisher to another Instagram.",
-      "Validate and preview my Instagram carousel workflow."
+      "Criar automação para outra conta do Instagram.",
+      "Copiar o fluxo NerionOS para uma nova conta.",
+      "Validar e pré-visualizar um carrossel automático."
     ],
     "brandColor": "#7CFFB2"
   }
