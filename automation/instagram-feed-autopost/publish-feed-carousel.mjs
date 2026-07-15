@@ -139,6 +139,133 @@ E assim a IA sai do teste isolado e vira operação viva.
 
 #gestao #qualidade #inteligenciaartificial #agentesia #skills #nerionos #empresas`
   }
+  ,
+  {
+    slides: [
+      { eyebrow: 'Financeiro', title: 'Número solto não vira gestão.', body: 'Relatório só ajuda quando aponta risco, prioridade e próxima decisão.' },
+      { eyebrow: 'Skill', title: 'Critério antes do dashboard.', body: 'A skill define quais dados importam, como conferir e quando acionar o time.' },
+      { eyebrow: 'Agente', title: 'Rotina financeira sem atraso.', body: 'O agente cruza cobranças, vencimentos, status e pendências todos os dias.' },
+      { eyebrow: 'Gestão', title: 'Menos surpresa no caixa.', body: 'Alertas claros ajudam a empresa a agir antes do problema virar urgência.' },
+      { eyebrow: 'NerionOS', title: 'Dados viram operação.', body: 'A IA organiza o caminho entre informação, análise e ação.' }
+    ],
+    caption: `Empresa inteligente não olha número só no fim do mês.
+
+O valor aparece quando a IA acompanha a rotina: cobranças, vencimentos, pendências, indicadores e alertas.
+
+Com skills, o agente sabe o que conferir. Com fluxo, ele entrega contexto para a pessoa certa decidir melhor.
+
+Financeiro com IA não é planilha bonita. É operação com menos surpresa.
+
+#financeiro #gestao #inteligenciaartificial #agentesia #nerionos #automacao #empresas`
+  },
+  {
+    slides: [
+      { eyebrow: 'Pós-venda', title: 'Cliente não pode sumir do radar.', body: 'A experiência melhora quando acompanhamento vira rotina, não lembrança ocasional.' },
+      { eyebrow: 'Skill', title: 'Sinais de atenção ficam claros.', body: 'A skill registra prazos, promessas, dúvidas frequentes e momentos de contato.' },
+      { eyebrow: 'Agente', title: 'Follow-up com contexto.', body: 'O agente lembra, prepara a conversa e aponta quem precisa de cuidado.' },
+      { eyebrow: 'Operação', title: 'Menos perda silenciosa.', body: 'Problemas pequenos aparecem antes de virarem cancelamento ou reclamação.' },
+      { eyebrow: 'NerionOS', title: 'Relacionamento com sistema.', body: 'A IA ajuda o time a cuidar melhor sem depender de memória individual.' }
+    ],
+    caption: `Pós-venda bom não depende de alguém lembrar no improviso.
+
+Com IA aplicada ao processo, cada cliente pode ter acompanhamento, contexto e próximo passo organizado.
+
+A skill define o padrão de cuidado. O agente observa sinais. O fluxo coloca a informação no lugar certo.
+
+O resultado é simples: menos cliente esquecido, mais relacionamento bem conduzido.
+
+#posvenda #experienciadocliente #agentesia #skills #nerionos #automacao #negocios`
+  },
+  {
+    slides: [
+      { eyebrow: 'RH', title: 'Onboarding não deveria ser informal.', body: 'Quando cada pessoa ensina de um jeito, o novo colaborador começa no escuro.' },
+      { eyebrow: 'Skill', title: 'Conhecimento vira trilha.', body: 'Processos, regras, exemplos e materiais ficam organizados para consulta.' },
+      { eyebrow: 'Agente', title: 'Dúvida respondida com padrão.', body: 'O agente orienta, encontra documentos e encaminha exceções para humanos.' },
+      { eyebrow: 'Gestão', title: 'Menos dependência de boca a boca.', body: 'A empresa preserva conhecimento e acelera adaptação sem perder qualidade.' },
+      { eyebrow: 'NerionOS', title: 'Aprendizado operacional.', body: 'A IA transforma orientação interna em sistema vivo.' }
+    ],
+    caption: `Onboarding não precisa ser um monte de mensagens soltas.
+
+Quando a empresa documenta processos em skills, agentes conseguem orientar pessoas com mais consistência.
+
+Isso reduz dependência de boca a boca, acelera adaptação e preserva o jeito certo de trabalhar.
+
+RH com IA não é substituir acolhimento. É dar suporte melhor para quem está chegando.
+
+#rh #onboarding #gestao #agentesia #skills #nerionos #produtividade`
+  },
+  {
+    slides: [
+      { eyebrow: 'Suporte', title: 'Chamado sem contexto custa caro.', body: 'O tempo vai embora quando o time precisa descobrir tudo de novo.' },
+      { eyebrow: 'Skill', title: 'Triagem com regra clara.', body: 'A skill define perguntas, prioridades, categorias e critérios de encaminhamento.' },
+      { eyebrow: 'Agente', title: 'Resumo pronto para ação.', body: 'O agente coleta dados, organiza histórico e entrega o caso mais limpo.' },
+      { eyebrow: 'Operação', title: 'Menos troca de mensagem.', body: 'O time recebe o problema com contexto suficiente para resolver mais rápido.' },
+      { eyebrow: 'NerionOS', title: 'Suporte com inteligência.', body: 'IA boa reduz ruído antes de tentar responder tudo sozinha.' }
+    ],
+    caption: `Suporte fica caro quando cada chamado começa do zero.
+
+A IA ajuda mais quando organiza contexto: quem é o cliente, qual é o problema, o que já foi tentado e qual prioridade.
+
+Com skill e agente, a triagem fica mais clara. O time humano entra com menos ruído e mais direção.
+
+Esse é o tipo de automação que melhora operação de verdade.
+
+#suporte #atendimento #agentesia #nerionos #automacao #experienciadocliente`
+  },
+  {
+    slides: [
+      { eyebrow: 'Diretoria', title: 'Decisão lenta também é custo.', body: 'Quando a informação chega tarde, a empresa reage em vez de conduzir.' },
+      { eyebrow: 'Skill', title: 'Indicador precisa de leitura.', body: 'A skill separa dado importante, variação relevante e sinal de alerta.' },
+      { eyebrow: 'Agente', title: 'Resumo executivo todo dia.', body: 'O agente transforma dados espalhados em pontos de atenção e próximos passos.' },
+      { eyebrow: 'Gestão', title: 'Mais clareza para priorizar.', body: 'A liderança enxerga onde agir antes que o problema cresça.' },
+      { eyebrow: 'NerionOS', title: 'IA para governar melhor.', body: 'Processo, indicador e agente trabalham juntos para reduzir cegueira operacional.' }
+    ],
+    caption: `Diretoria não precisa de mais dado solto. Precisa de leitura.
+
+IA aplicada à gestão ajuda quando transforma informação em sinal: o que mudou, por que importa e qual ação merece prioridade.
+
+Com skills, os critérios ficam explícitos. Com agentes, a leitura acontece com frequência.
+
+Menos relatório parado. Mais decisão com contexto.
+
+#gestao #lideranca #inteligenciaartificial #agentesia #nerionos #dados #negocios`
+  },
+  {
+    slides: [
+      { eyebrow: 'Operações', title: 'Processo invisível não melhora.', body: 'Se ninguém mede a rotina, ninguém sabe onde a empresa perde tempo.' },
+      { eyebrow: 'Skill', title: 'Mapeie entrada e saída.', body: 'A skill descreve começo, fim, exceções, responsáveis e critérios de qualidade.' },
+      { eyebrow: 'Agente', title: 'Execução com registro.', body: 'O agente roda tarefas, salva evidências e mostra gargalos recorrentes.' },
+      { eyebrow: 'Gestão', title: 'Melhoria deixa rastro.', body: 'Cada rodada gera aprendizado para ajustar fluxo, regra e prioridade.' },
+      { eyebrow: 'NerionOS', title: 'Rotina que aprende.', body: 'A IA vira parte do sistema operacional da empresa.' }
+    ],
+    caption: `O que não aparece na operação dificilmente melhora.
+
+Agentes ajudam quando executam e registram: o que entrou, o que saiu, onde travou e qual exceção apareceu.
+
+Com esse rastro, a empresa deixa de depender de impressão e começa a melhorar processo com evidência.
+
+IA útil é aquela que trabalha todos os dias no fluxo real.
+
+#operacoes #processos #agentesia #skills #nerionos #produtividade #automacao`
+  },
+  {
+    slides: [
+      { eyebrow: 'Conhecimento', title: 'Documento parado não treina ninguém.', body: 'A empresa precisa transformar conhecimento em uso diário.' },
+      { eyebrow: 'Skill', title: 'Manual vivo, não arquivo morto.', body: 'A skill organiza contexto, exemplos, limites e padrões de decisão.' },
+      { eyebrow: 'Agente', title: 'Aplicação no momento certo.', body: 'O agente consulta a skill enquanto executa, responde ou prepara uma entrega.' },
+      { eyebrow: 'Equipe', title: 'O padrão fica disponível.', body: 'Menos dependência de uma pessoa específica. Mais consistência no time.' },
+      { eyebrow: 'NerionOS', title: 'Conhecimento em movimento.', body: 'A IA transforma memória da empresa em operação prática.' }
+    ],
+    caption: `Conhecimento parado em documento raramente muda a operação.
+
+O salto acontece quando esse conhecimento vira skill: contexto, regra, exemplo, limite e padrão de qualidade.
+
+Daí o agente consegue aplicar esse padrão no trabalho real, todos os dias.
+
+É assim que a empresa reduz dependência individual e ganha consistência.
+
+#conhecimento #skills #agentesia #nerionos #gestao #produtividade #inteligenciaartificial`
+  }
 ];
 
 function parseArgs(argv) {
@@ -257,9 +384,60 @@ function todaySaoPaulo() {
   return timestampSaoPaulo().slice(0, 10);
 }
 
+function daysSinceEpoch(dateString) {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return Math.floor(Date.UTC(year, month - 1, day) / 86_400_000);
+}
+
 function pickDailyPack(dateString) {
-  const seed = [...dateString].reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  return DAILY_PACKS[seed % DAILY_PACKS.length];
+  return DAILY_PACKS[daysSinceEpoch(dateString) % DAILY_PACKS.length];
+}
+
+const VISUAL_STYLES = [
+  {
+    name: 'mint-grid',
+    accent: '#7CFFB2',
+    accentSoft: 'rgba(124,255,178,0.18)',
+    grid: 'rgba(124,255,178,0.10)',
+    bgTop: '#0B1014',
+    bgBottom: '#121A20',
+    text: '#F4F7F5',
+    muted: '#DDE5DF'
+  },
+  {
+    name: 'cyan-map',
+    accent: '#67D8FF',
+    accentSoft: 'rgba(103,216,255,0.16)',
+    grid: 'rgba(103,216,255,0.11)',
+    bgTop: '#071116',
+    bgBottom: '#10202A',
+    text: '#F6FBFF',
+    muted: '#D6E7EF'
+  },
+  {
+    name: 'amber-signal',
+    accent: '#FFD166',
+    accentSoft: 'rgba(255,209,102,0.16)',
+    grid: 'rgba(255,209,102,0.10)',
+    bgTop: '#11100A',
+    bgBottom: '#1D1A12',
+    text: '#FFF8E8',
+    muted: '#E9DEC4'
+  },
+  {
+    name: 'rose-ops',
+    accent: '#FF8FAB',
+    accentSoft: 'rgba(255,143,171,0.15)',
+    grid: 'rgba(255,143,171,0.10)',
+    bgTop: '#120B10',
+    bgBottom: '#21141C',
+    text: '#FFF5F8',
+    muted: '#ECD7DF'
+  }
+];
+
+function pickVisualStyle(dateString) {
+  return VISUAL_STYLES[daysSinceEpoch(dateString) % VISUAL_STYLES.length];
 }
 
 function validateDailyPacks() {
@@ -274,14 +452,14 @@ function validateDailyPacks() {
   }
 }
 
-function slideHtml(slide, index, total) {
+function slideHtml(slide, index, total, style) {
   return `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { width: 1080px; height: 1080px; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: #0B1014; color: #F4F7F5; }
+    body { width: 1080px; height: 1080px; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: ${style.bgTop}; color: ${style.text}; }
     main {
       width: 1080px;
       height: 1080px;
@@ -290,8 +468,8 @@ function slideHtml(slide, index, total) {
       flex-direction: column;
       justify-content: space-between;
       background:
-        linear-gradient(135deg, rgba(124,255,178,0.18), rgba(124,255,178,0) 34%),
-        linear-gradient(180deg, #0B1014 0%, #121A20 100%);
+        linear-gradient(135deg, ${style.accentSoft}, rgba(124,255,178,0) 34%),
+        linear-gradient(180deg, ${style.bgTop} 0%, ${style.bgBottom} 100%);
       position: relative;
     }
     main::before { content: ""; position: absolute; inset: 34px; border: 2px solid rgba(244,247,245,0.1); }
@@ -303,21 +481,21 @@ function slideHtml(slide, index, total) {
       width: 450px;
       height: 780px;
       background:
-        linear-gradient(90deg, rgba(124,255,178,0.10) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(124,255,178,0.10) 1px, transparent 1px);
+        linear-gradient(90deg, ${style.grid} 1px, transparent 1px),
+        linear-gradient(180deg, ${style.grid} 1px, transparent 1px);
       background-size: 46px 46px;
       transform: rotate(-7deg);
     }
     section, footer { position: relative; z-index: 2; }
     .top { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { font-size: 34px; font-weight: 900; color: #F4F7F5; }
-    .eyebrow { font-size: 28px; font-weight: 900; color: #7CFFB2; text-transform: uppercase; text-align: right; }
+    .brand { font-size: 34px; font-weight: 900; color: ${style.text}; }
+    .eyebrow { font-size: 28px; font-weight: 900; color: ${style.accent}; text-transform: uppercase; text-align: right; }
     .content { display: flex; flex-direction: column; gap: 34px; }
-    h1 { max-width: 850px; font-size: 82px; line-height: 1.03; font-weight: 900; color: #F4F7F5; letter-spacing: 0; }
-    p { max-width: 830px; font-size: 42px; line-height: 1.18; font-weight: 800; color: #DDE5DF; letter-spacing: 0; }
-    .bar { width: 220px; height: 12px; background: #7CFFB2; }
+    h1 { max-width: 850px; font-size: 82px; line-height: 1.03; font-weight: 900; color: ${style.text}; letter-spacing: 0; }
+    p { max-width: 830px; font-size: 42px; line-height: 1.18; font-weight: 800; color: ${style.muted}; letter-spacing: 0; }
+    .bar { width: ${index % 2 === 0 ? '148px' : '220px'}; height: 12px; background: ${style.accent}; }
     footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; color: #AEB8B2; font-size: 26px; font-weight: 800; }
-    footer strong { display: block; color: #F4F7F5; font-size: 30px; font-weight: 900; }
+    footer strong { display: block; color: ${style.text}; font-size: 30px; font-weight: 900; }
   </style>
 </head>
 <body>
@@ -340,13 +518,13 @@ function slideHtml(slide, index, total) {
 </html>`;
 }
 
-async function renderSlides(runDir, slides) {
+async function renderSlides(runDir, slides, style) {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 1 });
   const imagePaths = [];
 
   for (let index = 0; index < slides.length; index += 1) {
-    const html = slideHtml(slides[index], index + 1, slides.length);
+    const html = slideHtml(slides[index], index + 1, slides.length, style);
     assertNoMojibake(html);
     assertPortugueseAccents(`${slides[index].eyebrow}\n${slides[index].title}\n${slides[index].body}`);
     const htmlPath = join(runDir, `slide-${String(index + 1).padStart(2, '0')}.html`);
@@ -411,13 +589,14 @@ async function main() {
     mkdirSync(RUNS_DIR, { recursive: true });
     const today = todaySaoPaulo();
     const pack = pickDailyPack(today);
+    const style = pickVisualStyle(today);
     const runId = `${timestampSaoPaulo()}-render-only`;
     const runDir = join(RUNS_DIR, runId);
     mkdirSync(runDir, { recursive: true });
-    writeFileSync(join(runDir, 'daily-pack.json'), JSON.stringify({ date: today, ...pack }, null, 2), 'utf8');
+    writeFileSync(join(runDir, 'daily-pack.json'), JSON.stringify({ date: today, visualStyle: style.name, ...pack }, null, 2), 'utf8');
     writeFileSync(join(runDir, 'caption.txt'), pack.caption, 'utf8');
-    const imagePaths = await renderSlides(runDir, pack.slides);
-    console.log(JSON.stringify({ ok: true, renderOnly: true, runDir, imagePaths }, null, 2));
+    const imagePaths = await renderSlides(runDir, pack.slides, style);
+    console.log(JSON.stringify({ ok: true, renderOnly: true, runDir, visualStyle: style.name, imagePaths }, null, 2));
     return;
   }
   const env = loadEnv();
@@ -430,6 +609,7 @@ async function main() {
 
   const today = todaySaoPaulo();
   const pack = pickDailyPack(today);
+  const style = pickVisualStyle(today);
   const { slides, caption } = pack;
 
   assertNoMojibake(caption);
@@ -438,7 +618,7 @@ async function main() {
   const runId = timestampSaoPaulo();
   const runDir = join(RUNS_DIR, runId);
   mkdirSync(runDir, { recursive: true });
-  writeFileSync(join(runDir, 'daily-pack.json'), JSON.stringify({ date: today, ...pack }, null, 2), 'utf8');
+  writeFileSync(join(runDir, 'daily-pack.json'), JSON.stringify({ date: today, visualStyle: style.name, ...pack }, null, 2), 'utf8');
   writeFileSync(join(runDir, 'caption.txt'), caption, 'utf8');
 
   const account = await graphGet(`/${userId}`, { fields: 'id,username', access_token: token });
@@ -446,7 +626,7 @@ async function main() {
     throw new Error(`Conta errada: esperado ${EXPECTED_USERNAME}, retornou ${account.username}.`);
   }
 
-  const imagePaths = await renderSlides(runDir, slides);
+  const imagePaths = await renderSlides(runDir, slides, style);
   const imageUrls = await Promise.all(imagePaths.map((imagePath) => uploadToImgBB(imagePath, imgbbKey)));
   const children = await Promise.all(
     imageUrls.map((imageUrl) => graphPost(`/${userId}/media`, {
@@ -471,6 +651,7 @@ async function main() {
     dryRun: args.dryRun,
     date: today,
     runId,
+    visualStyle: style.name,
     account: account.username,
     runDir,
     imagePaths,
